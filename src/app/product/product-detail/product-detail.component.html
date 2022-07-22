@@ -1,0 +1,23 @@
+<div class="detail-container">
+    <img [src]="product?.url" alt="" class="product-image">
+    <div class="detail-item">
+        <h1>{{product?.name}}</h1>
+        <h2>{{product?.description}}</h2>
+        <h3 class="">{{product?.price}} $</h3>
+
+        <mat-slider *ngIf="!product?.onCart" thumbLabel min="1" max="10" step="1" value="1" [(ngModel)]="ItemsCount"></mat-slider>
+
+
+        <button *ngIf="!product?.onCart" (click)="addToCart()">Add to Cart</button>
+        <span *ngIf="product?.onCart">🛒 {{product?.AmountOnCart}} On cart. <button  style="color:red;" (click)="removeFromCart()">🗑 Remove</button></span>
+
+
+        <br>
+        <br>
+        <a class="back-link" routerLink="/">Back to Products</a>
+
+
+    </div>
+
+
+</div>

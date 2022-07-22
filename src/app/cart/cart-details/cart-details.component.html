@@ -1,0 +1,69 @@
+<div class="cart-container">
+    <div class="cart-panel">
+        <div class="cart-panel-header">
+            <h3>Cart</h3>
+        </div>
+        <div class="cart-item" *ngFor="let cartitem of cartItems">
+            <a [routerLink]="['/productdetails', cartitem?.id]">
+                <img [src]="cartitem?.url" alt="" class="product-image">
+            </a>
+            <div class="cart-item-details">
+                <h4>{{cartitem?.name}}</h4>
+                <p>${{cartitem?.price}}</p>
+                <p>Quantity:
+                    <select [(ngModel)]="cartitem.AmountOnCart" (change)="totalAmount()">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+
+                </p>
+            </div>
+            <div class="cart-panel-body-item-remove">
+                <button style="color:red;" (click)="removeFromCart(cartitem?.id)">🗑 Remove</button>
+            </div>
+        </div>
+        <hr>
+        <div>
+            <h3>Total: ${{total.toFixed(2)}}</h3>
+        </div>
+    </div>
+    <div class="cart-panel">
+        <form #form="ngForm" (ngSubmit)="checkout()" class="form-margin">
+            <div class="cart-panel-header">
+                <h3>Checkout</h3>
+            </div>
+
+            <div class="form-input">
+                <label>Full Name</label>
+                <br>
+                <input type="text" class="number-input" [(ngModel)]="fullname" name="fullname" placeholder="3 Chars minimam" required minlength="3">
+            </div>
+            <div class="form-input">
+                <label>Address</label>
+                <br>
+                <input type="text" class="number-input" [(ngModel)]="address" name="fullname" placeholder="6 Chars minimam" required minlength="6">
+            </div>
+            <div class="form-input">
+                <label>Credit Card Number </label>
+                <br>
+                <input type="text" class="number-input" [(ngModel)]="creditCardNumber" name="CreditCardNumber " placeholder="16 digit number" required minlength="16" maxlength="16">
+            </div>
+
+            <br>
+            <br>
+
+            <div class="form-input" *ngIf="cartItems.length>0">
+                <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Checkout Now</button>
+            </div>
+
+        </form>
+    </div>
+</div>
