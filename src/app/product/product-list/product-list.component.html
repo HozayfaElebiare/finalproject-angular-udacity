@@ -1,9 +1,7 @@
-<!-- <div *ngFor="let product of productList">
-    <h1>{{product.name}}</h1>
-    <h3>{{product.price}}</h3>
-    <img [src]="product.url" alt="">
-</div> -->
 <div class="product-index">
-    <app-product-item *ngFor="let product of productList" [product]="product" class="product-container"></app-product-item>
+    <app-product-item *ngFor="let product of productList" [product]="product" class="product-container" (addItemToCartEvent)="addItemToCart($event)" (removeFromCartEvent)="removeFromCart($event)"></app-product-item>
 
 </div>
+<br>
+<br>
+<br>

@@ -13,7 +13,21 @@ export class ProductListComponent implements OnInit {
   constructor(private productService:ProductService) { }
 
   ngOnInit(): void {
-    this.productList = this.productService.getProducts();
   }
+
+  ngAfterContentChecked(): void {
+    this.productList = this.productService.getProducts();
+
+  }
+
+  addItemToCart(product:ProductModel){
+    this.productService.addToCart(product.id,product.AmountOnCart);
+  }
+  
+
+  removeFromCart(product:ProductModel){
+    this.productService.removeFromCart(product.id);
+  }
+
 
 }

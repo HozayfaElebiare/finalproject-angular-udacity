@@ -10,6 +10,8 @@ import { CartDetailsComponent } from './cart/cart-details/cart-details.component
 import { MeComponent } from './contact/me/me.component';
 import { FormsModule } from '@angular/forms';
 import { PlaceOrderComponent } from './cart/place-order/place-order.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { PlaceOrderComponent } from './cart/place-order/place-order.component';
     BrowserAnimationsModule,
     ProductModule,
     FormsModule ,
+    HttpClientModule
+    
 
   ],
   providers: [],

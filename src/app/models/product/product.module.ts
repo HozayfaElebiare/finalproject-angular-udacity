@@ -16,7 +16,7 @@ export class ProductModel {
   description:String;
   url:String;
   onCart:boolean = false;
-  AmountOnCart:Number = 0;
+  public AmountOnCart:Number = 0;
 
 
 
@@ -30,5 +30,6 @@ export class ProductModel {
     this.onCart = ProductModel.onCart;
     this.AmountOnCart = ProductModel.AmountOnCart;
   }
+
   
 }

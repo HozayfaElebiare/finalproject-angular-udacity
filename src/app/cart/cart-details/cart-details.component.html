@@ -54,7 +54,7 @@
             <div class="form-input">
                 <label>Credit Card Number </label>
                 <br>
-                <input type="text" class="number-input" [(ngModel)]="creditCardNumber" name="CreditCardNumber " placeholder="16 digit number" required minlength="16" maxlength="16">
+                <input type="text" class="number-input" [(ngModel)]="creditCardNumber" name="CreditCardNumber " placeholder="16 digit number" required minlength="16" maxlength="16" ng-pattern="/^[0-9]{1,7}$/" (keypress)="keyPressNumbers($event)">
             </div>
 
             <br>

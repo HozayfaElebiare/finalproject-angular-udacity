@@ -5,7 +5,7 @@
     <h1>{{product?.name}}</h1>
     <h3>{{product?.price}} $</h3>
     <br>
-    <mat-slider *ngIf="!product?.onCart" thumbLabel min="1" max="10" step="1" value="1" [(ngModel)]="ItemsCount"></mat-slider>
+    <mat-slider *ngIf="!product?.onCart" thumbLabel min="1" max="10" step="1" value="1" [(ngModel)]="ItemsCount" (ngModelChange)="changeItemsCount($event)"></mat-slider>
 
 
     <button *ngIf="!product?.onCart" (click)="addToCart()">Add to Cart</button>
